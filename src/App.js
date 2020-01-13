@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import "./App.css";
 import WeatherContainer from "../src/components/WeatherContainer";
+import Loading from "../src/components/Loading";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       list: [],
-      city: ""
+      city: "",
+      isLoading: true
     };
   }
 
@@ -19,17 +21,19 @@ class App extends Component {
       .then(response =>
         this.setState({
           list: response.list,
-          city: response.city
+          city: response.city,
+          isLoading: false
         })
       );
   }
   render() {
-    return (
-      <div className='App'>
-        <h1>Weather for Munich </h1>
-        <WeatherContainer />
-      </div>
-    );
+    let data;
+    if (this.state.isLoading) {
+      data = <Loading />;
+    } else {
+      data = <WeatherContainer list={this.state.list} />;
+    }
+    return <div className='App'>{data}</div>;
   }
 }
 
