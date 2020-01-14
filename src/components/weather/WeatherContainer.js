@@ -39,9 +39,25 @@ class WeatherContainer extends Component {
 
     return (
       <div className='weather-card'>
-        <WeatherCard averageC={avgC} averageF={avgF} />
+        <WeatherCard
+          averageC={avgC}
+          averageF={avgF}
+          showF={this.state.showFahrenheit}
+        />
       </div>
     );
+  };
+
+  handleCelcius = () => {
+    this.setState({
+      showFahrenheit: false
+    });
+  };
+
+  handleFahrenheit = () => {
+    this.setState({
+      showFahrenheit: true
+    });
   };
 
   render() {
@@ -50,7 +66,8 @@ class WeatherContainer extends Component {
         <h1>Weather Container</h1>
         <ul>
           <li>c or f toggle</li>
-          {<Radio />} Celcius {<Radio />} Fahrenheit <br />
+          {<Radio onClick={this.handleCelcius} />} Celcius{" "}
+          {<Radio onClick={this.handleFahrenheit} />} Fahrenheit <br />
           <li>arrows</li> <br />
           <li>Card Data</li>
           {this.showCard()}
