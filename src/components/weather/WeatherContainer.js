@@ -75,7 +75,7 @@ class WeatherContainer extends Component {
                 label='Celcius'
                 name='radioGroup'
                 value='Celcius'
-                checked={this.state.value === "this"}
+                checked={this.state.showFahrenheit === false}
                 onChange={this.handleRadio}
               />
             </Form.Field>
@@ -84,7 +84,7 @@ class WeatherContainer extends Component {
                 label='Fahrenheit'
                 name='radioGroup'
                 value='Fahrenheit'
-                checked={this.state.value === "that"}
+                checked={this.state.showFahrenheit === true}
                 onChange={this.handleRadio}
               />
             </Form.Field>
