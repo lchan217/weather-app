@@ -23,10 +23,6 @@ class WeatherContainer extends Component {
       averageObject[date] = tempObject[date] / countObject[date];
     }
 
-    for (let [key, value] of Object.entries(averageObject)) {
-      console.log(`${key}: ${value}`);
-    }
-
     return (
       <div className='weather-card'>
         <WeatherCard averages={averageObject} />
