@@ -42,7 +42,7 @@ class WeatherContainer extends Component {
       return Object.entries(avgF).map(([date, temp]) => {
         return (
           <div>
-            <Card.Group itemsPerRow={3}>
+            <Card.Group>
               <WeatherCard date={date} temp={temp} />
             </Card.Group>
           </div>
@@ -52,7 +52,7 @@ class WeatherContainer extends Component {
       return Object.entries(avgC).map(([date, temp]) => {
         return (
           <div>
-            <Card.Group itemsPerRow={3}>
+            <Card.Group>
               <WeatherCard date={date} temp={temp} />
             </Card.Group>
           </div>
