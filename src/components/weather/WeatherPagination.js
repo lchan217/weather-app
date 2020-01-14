@@ -23,11 +23,25 @@ class WeatherPagination extends Component {
     return <WeatherCard temps={currentTemps} />;
   };
 
+  showArrows = () => {
+    if (this.state.currentPage === 0) {
+      return <Icon name='arrow circle right'></Icon>;
+    } else if (this.state.currentPage === 5) {
+      return <Icon name='arrow circle left'></Icon>;
+    } else {
+      return (
+        <div>
+          <Icon name='arrow circle left'></Icon>
+          <Icon name='arrow circle right'></Icon>
+        </div>
+      );
+    }
+  };
+
   render() {
     return (
       <div>
-        <Icon name='arrow circle left'></Icon>
-        <Icon name='arrow circle right'></Icon>
+        {this.showArrows()}
         {this.showPerPage()}
       </div>
     );
