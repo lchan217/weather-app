@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Radio from "@material-ui/core/Radio";
+import WeatherCard from "./WeatherCard";
 
 class WeatherContainer extends Component {
-  show = () => {
+  showCard = () => {
     //calculate average temp of dates available in api
-    //time that has already passed is not included in average
-    let tempObject = {}; //total temp by date
-    let countObject = {}; // total count by date
+    let tempObject = {};
+    let countObject = {};
     for (let item of this.props.list) {
       let date = item.dt_txt.slice(0, 10);
       tempObject[date]
@@ -17,10 +17,21 @@ class WeatherContainer extends Component {
       countObject[date] ? (countObject[date] += 1) : (countObject[date] = 1);
     }
 
+    //create object with date as key and average as value
     let averageObject = {};
     for (let date in tempObject) {
       averageObject[date] = tempObject[date] / countObject[date];
     }
+
+    for (let [key, value] of Object.entries(averageObject)) {
+      console.log(`${key}: ${value}`);
+    }
+
+    return (
+      <div className='weather-card'>
+        <WeatherCard averages={averageObject} />
+      </div>
+    );
   };
 
   render() {
@@ -32,7 +43,7 @@ class WeatherContainer extends Component {
           {<Radio />} Celcius {<Radio />} Fahrenheit <br />
           <li>arrows</li> <br />
           <li>Card Data</li>
-          {this.show()}
+          {this.showCard()}
           <br />
           <li>bar graph</li>
         </ul>

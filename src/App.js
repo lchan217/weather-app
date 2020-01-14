@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import WeatherContainer from "../src/components/WeatherContainer";
+import WeatherContainer from "./components/weather/WeatherContainer";
 import Loading from "../src/components/Loading";
 
 import { connect } from "react-redux";
