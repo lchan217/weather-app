@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import WeatherCard from "./WeatherCard";
+import { Form, Radio } from "semantic-ui-react";
 
 class WeatherContainer extends Component {
   constructor() {
@@ -45,18 +46,6 @@ class WeatherContainer extends Component {
         />
       </div>
     );
-  };
-
-  handleCelcius = () => {
-    this.setState({
-      showFahrenheit: false
-    });
-  };
-
-  handleFahrenheit = () => {
-    this.setState({
-      showFahrenheit: true
-    });
   };
 
   render() {
