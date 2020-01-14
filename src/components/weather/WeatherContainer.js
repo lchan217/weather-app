@@ -48,12 +48,47 @@ class WeatherContainer extends Component {
     );
   };
 
+  handleRadio = (e, { value }) => {
+    if (value === "Celcius") {
+      this.setState({
+        showFahrenheit: false
+      });
+    } else {
+      this.setState({
+        showFahrenheit: true
+      });
+    }
+  };
+
   render() {
     return (
       <div>
         <h1>Weather Container</h1>
         <ul>
           <li>c or f toggle</li>
+          <Form>
+            <Form.Field>
+              Selected value: <b>{this.state.value}</b>
+            </Form.Field>
+            <Form.Field>
+              <Radio
+                label='Celcius'
+                name='radioGroup'
+                value='Celcius'
+                checked={this.state.value === "this"}
+                onChange={this.handleRadio}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Radio
+                label='Fahrenheit'
+                name='radioGroup'
+                value='Fahrenheit'
+                checked={this.state.value === "that"}
+                onChange={this.handleRadio}
+              />
+            </Form.Field>
+          </Form>
           <li>arrows</li> <br />
           <li>Card Data</li>
           {this.showCard()}
