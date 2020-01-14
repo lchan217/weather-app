@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Radio from "@material-ui/core/Radio";
 
 class WeatherContainer extends Component {
   render() {
@@ -8,6 +9,7 @@ class WeatherContainer extends Component {
         <h1>Weather Container</h1>
         <ul>
           <li>c or f toggle</li>
+          {<Radio />} Celcius {<Radio />} Fahrenheit
           <li>arrows</li>
           <li>cards</li>
           <li>bar graph</li>
