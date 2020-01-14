@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 class WeatherContainer extends Component {
   render() {
@@ -16,4 +17,10 @@ class WeatherContainer extends Component {
   }
 }
 
-export default WeatherContainer;
+const mapStateToProps = state => {
+  return {
+    list: state.list
+  };
+};
+
+export default connect(mapStateToProps)(WeatherContainer);
