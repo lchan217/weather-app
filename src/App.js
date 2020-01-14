@@ -7,21 +7,13 @@ import { connect } from "react-redux";
 import { fetchWeather } from "../src/actions/weatherActions";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      list: [],
-      isLoading: true
-    };
-  }
-
   componentDidMount() {
     this.props.fetchWeather();
   }
 
   render() {
     let data;
-    if (this.state.isLoading) {
+    if (!this.props.list) {
       data = <Loading />;
     } else {
       data = <WeatherContainer />;
