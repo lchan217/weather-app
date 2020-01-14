@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import WeatherCard from "./WeatherCard";
-import { Form, Radio, Card } from "semantic-ui-react";
+import { Form, Radio, Card, Icon } from "semantic-ui-react";
 
 class WeatherContainer extends Component {
   constructor() {
@@ -101,7 +101,13 @@ class WeatherContainer extends Component {
               />
             </Form.Field>
           </Form>
-          <li>arrows</li> <br />
+          <br />
+          <Icon name='massive arrow circle left'></Icon>
+          <Icon name='massive arrow circle right'></Icon>
+          <br />
+          <br />
+          <br />
+          <br />
           {this.showCard()}
           <br />
           <li>bar graph</li>
