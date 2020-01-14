@@ -1,11 +1,18 @@
 import React from "react";
 
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+
 const WeatherCard = props => {
-  return Object.keys(props.averages).map(date => {
+  return Object.keys(props.averages).map((date, idx) => {
     return (
-      <li>
-        date: {date} = temp: {props.averages[date]}
-      </li>
+      <div key={idx}>
+        <Card>
+          <CardContent>
+            date: {date} - temp: {props.averages[date]}
+          </CardContent>
+        </Card>
+      </div>
     );
   });
 };
