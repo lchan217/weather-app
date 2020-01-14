@@ -1,0 +1,4 @@
+Assumptions: 
+
+1. Average temperature is list.main.temp / # of temps for that date. This is 8 
+per day except for the first and last dates fetched
