@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class WeatherCard extends Component {
+class WeatherPagination extends Component {
   render() {
     return <div>weaterhcard</div>;
   }
 }
 
-export default WeatherCard;
+export default WeatherPagination;

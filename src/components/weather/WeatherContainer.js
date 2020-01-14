@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import WeatherCard from "./WeatherCard";
+import WeatherPagination from "./WeatherPagination";
 import { Form, Radio, Icon } from "semantic-ui-react";
 
 class WeatherContainer extends Component {
@@ -41,13 +41,13 @@ class WeatherContainer extends Component {
     if (this.state.showFahrenheit) {
       return (
         <div>
-          <WeatherCard averages={avgF} />
+          <WeatherPagination averages={avgF} />
         </div>
       );
     } else {
       return (
         <div>
-          <WeatherCard averages={avgC} />
+          <WeatherPagination averages={avgC} />
         </div>
       );
     }
