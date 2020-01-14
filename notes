@@ -1,4 +1,10 @@
 Assumptions: 
 
-1. Average temperature is list.main.temp / # of temps for that date. This is 8 
+1. Average temperature is average temperature (found by list.main.temp) for that date. This is 8 
 per day except for the first and last dates fetched
+
+Reasons for Choosing Semantic UI Over Material UI: 
+1. Most important reason - for the sake of time. I have used and am more familiar with Semantic UI.
+2. In Material UI, too many lines need to be imported. With Semantic, this can be done in a few lines.
+3. Maybe I didn't spend enough time looking into this, but seems like styling has to be done manually with 
+Material UI, where in Semantic UI a large portion is automatic. 
