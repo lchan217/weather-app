@@ -3,6 +3,9 @@ import "./App.css";
 import WeatherContainer from "../src/components/WeatherContainer";
 import Loading from "../src/components/Loading";
 
+import { connect } from "react-redux";
+import { fetchWeather } from "../src/actions/weatherActions";
+
 class App extends Component {
   constructor() {
     super();
@@ -14,17 +17,18 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(
-      "http://api.openweathermap.org/data/2.5/forecast?q=Munich,de&APPID=75f972b80e26f14fe6c920aa6a85ad57&cnt=40"
-    )
-      .then(response => response.json())
-      .then(response =>
-        this.setState({
-          list: response.list,
-          city: response.city,
-          isLoading: false
-        })
-      );
+    this.props.fetchWeather();
+    // fetch(
+    //   "http://api.openweathermap.org/data/2.5/forecast?q=Munich,de&APPID=75f972b80e26f14fe6c920aa6a85ad57&cnt=40"
+    // )
+    //   .then(response => response.json())
+    //   .then(response =>
+    //     this.setState({
+    //       list: response.list,
+    //       city: response.city,
+    //       isLoading: false
+    //     })
+    //   );
   }
   render() {
     let data;
@@ -37,4 +41,16 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    list: state.list
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchWeather: () => dispatch(fetchWeather())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
