@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import WeatherCard from "./WeatherCard";
-import { Form, Radio, Card, Icon } from "semantic-ui-react";
+import { Form, Radio, Icon } from "semantic-ui-react";
 
 class WeatherContainer extends Component {
   constructor() {
@@ -39,25 +39,17 @@ class WeatherContainer extends Component {
 
     //logic to pass F or C data to card
     if (this.state.showFahrenheit) {
-      return Object.entries(avgF).map(([date, temp]) => {
-        return (
-          <div>
-            <Card.Group>
-              <WeatherCard date={date} temp={temp} />
-            </Card.Group>
-          </div>
-        );
-      });
+      return (
+        <div>
+          <WeatherCard averages={avgF} />
+        </div>
+      );
     } else {
-      return Object.entries(avgC).map(([date, temp]) => {
-        return (
-          <div>
-            <Card.Group>
-              <WeatherCard date={date} temp={temp} />
-            </Card.Group>
-          </div>
-        );
-      });
+      return (
+        <div>
+          <WeatherCard averages={avgC} />
+        </div>
+      );
     }
   };
 
