@@ -1,18 +1,28 @@
-import React from "react";
+import React, { Component } from "react";
 
-const WeatherCard = props => {
-  //   return Object.keys(props.averages).map((date, idx) => {
-  //     return (
-  //       <div key={idx}>
-  //         <Card>
-  //           <CardContent>
-  //             date: {date} - temp: {props.averages[date]}
-  //           </CardContent>
-  //         </Card>
-  //       </div>
-  //     );
-  //   });
-  return <div>weathercard</div>;
-};
+class WeatherCard extends Component {
+  showData = () => {
+    if (this.props.showF) {
+      return Object.entries(this.props.averageF).map(([date, temp]) => {
+        return (
+          <div>
+            date: {date} - temp: {temp.toFixed(2)}
+          </div>
+        );
+      });
+    } else {
+      return Object.entries(this.props.averageC).map(([date, temp]) => {
+        return (
+          <div>
+            date: {date} - temp: {temp.toFixed(2)}
+          </div>
+        );
+      });
+    }
+  };
+  render() {
+    return <div>{this.showData()}</div>;
+  }
+}
 
 export default WeatherCard;
