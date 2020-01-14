@@ -1,10 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import { Card } from "semantic-ui-react";
 
-class WeatherCard extends Component {
-  render() {
-    return <div>weathercard</div>;
-  }
-}
+const WeatherCard = props => {
+  return (
+    <div>
+      <Card>
+        <Card.Content>
+          Date: {props.date} <br />
+          Temp: {props.temp.toFixed(2)}
+        </Card.Content>
+      </Card>
+    </div>
+  );
+};
 
 export default WeatherCard;
