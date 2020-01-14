@@ -37,15 +37,24 @@ class WeatherContainer extends Component {
       avgF[date] = ((avgK[date] - 273.15) * 9) / 5 + 32;
     }
 
-    return (
-      <div className='weather-card'>
-        <WeatherCard
-          averageC={avgC}
-          averageF={avgF}
-          showF={this.state.showFahrenheit}
-        />
-      </div>
-    );
+    //logic to pass F or C data to card
+    if (this.state.showFahrenheit) {
+      return Object.entries(avgF).map(([date, temp]) => {
+        return (
+          <div>
+            <WeatherCard date={date} temp={temp} />
+          </div>
+        );
+      });
+    } else {
+      return Object.entries(avgC).map(([date, temp]) => {
+        return (
+          <div>
+            <WeatherCard date={date} temp={temp} />
+          </div>
+        );
+      });
+    }
   };
 
   handleRadio = (e, { value }) => {
@@ -89,7 +98,6 @@ class WeatherContainer extends Component {
             </Form.Field>
           </Form>
           <li>arrows</li> <br />
-          <li>Card Data</li>
           {this.showCard()}
           <br />
           <li>bar graph</li>
