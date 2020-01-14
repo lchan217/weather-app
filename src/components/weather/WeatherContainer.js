@@ -4,6 +4,12 @@ import Radio from "@material-ui/core/Radio";
 import WeatherCard from "./WeatherCard";
 
 class WeatherContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showFahrenheit: true
+    };
+  }
   showCard = () => {
     //calculate average temp of dates available in api
     let tempObject = {};
@@ -17,15 +23,23 @@ class WeatherContainer extends Component {
       countObject[date] ? (countObject[date] += 1) : (countObject[date] = 1);
     }
 
-    //create object with date as key and average as value
-    let averageObject = {};
+    //create object with date as key and average as value in K
+    let avgK = {};
     for (let date in tempObject) {
-      averageObject[date] = tempObject[date] / countObject[date];
+      avgK[date] = tempObject[date] / countObject[date];
+    }
+
+    //convert to C and F
+    let avgC = {};
+    let avgF = {};
+    for (let date in avgK) {
+      avgC[date] = avgK[date] - 273.15;
+      avgF[date] = ((avgK[date] - 273.15) * 9) / 5 + 32;
     }
 
     return (
       <div className='weather-card'>
-        <WeatherCard averages={averageObject} />
+        <WeatherCard averageC={avgC} averageF={avgF} />
       </div>
     );
   };
