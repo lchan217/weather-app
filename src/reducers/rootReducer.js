@@ -1,9 +1,7 @@
 export default function rootReducer(state = [], action) {
   switch (action.type) {
     case "FETCH_WEATHER":
-      // will change later
-      debugger;
-      return state;
+      return action.payload;
 
     default:
       return state;
