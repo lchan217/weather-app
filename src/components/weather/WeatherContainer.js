@@ -65,7 +65,6 @@ class WeatherContainer extends Component {
       <div>
         <h1>Weather Container</h1>
         <ul>
-          <li>c or f toggle</li>
           <Form>
             <Form.Field>
               Selected value: <b>{this.state.value}</b>
