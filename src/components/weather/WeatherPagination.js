@@ -31,6 +31,14 @@ class WeatherPagination extends Component {
     }
   };
 
+  handleRight = () => {
+    if (this.state.currentPage < 6) {
+      this.setState(prevState => {
+        return { currentPage: prevState.currentPage + 1 };
+      });
+    }
+  };
+
   showArrows = () => {
     if (this.state.currentPage === 1) {
       return <Icon name='arrow circle right'></Icon>;
@@ -40,7 +48,7 @@ class WeatherPagination extends Component {
       return (
         <div>
           <Icon onClick={this.handleLeft} name='arrow circle left'></Icon>
-          <Icon name='arrow circle right'></Icon>
+          <Icon onClick={this.handleRight} name='arrow circle right'></Icon>
         </div>
       );
     }
