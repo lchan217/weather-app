@@ -5,7 +5,7 @@ import WeatherCard from "./WeatherCard";
 class WeatherPagination extends Component {
   constructor() {
     super();
-    this.state = { currentPage: 1, tempsPerPage: 3 };
+    this.state = { currentPage: 2, tempsPerPage: 3 };
   }
 
   showPerPage = () => {
@@ -23,15 +23,23 @@ class WeatherPagination extends Component {
     return <WeatherCard temps={currentTemps} />;
   };
 
+  handleLeft = () => {
+    if (this.state.currentPage > 1) {
+      this.setState(prevState => {
+        return { currentPage: prevState.currentPage - 1 };
+      });
+    }
+  };
+
   showArrows = () => {
-    if (this.state.currentPage === 0) {
+    if (this.state.currentPage === 1) {
       return <Icon name='arrow circle right'></Icon>;
     } else if (this.state.currentPage === 5) {
       return <Icon name='arrow circle left'></Icon>;
     } else {
       return (
         <div>
-          <Icon name='arrow circle left'></Icon>
+          <Icon onClick={this.handleLeft} name='arrow circle left'></Icon>
           <Icon name='arrow circle right'></Icon>
         </div>
       );
