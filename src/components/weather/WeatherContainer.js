@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import WeatherPagination from "./WeatherPagination";
+import BarChart from "./BarChart";
 import { Form, Radio } from "semantic-ui-react";
 
 class WeatherContainer extends Component {
@@ -10,6 +11,19 @@ class WeatherContainer extends Component {
       showFahrenheit: true
     };
   }
+
+  handleRadio = (e, { value }) => {
+    if (value === "Celcius") {
+      this.setState({
+        showFahrenheit: false
+      });
+    } else {
+      this.setState({
+        showFahrenheit: true
+      });
+    }
+  };
+
   showCard = () => {
     //calculate average temp of dates available in api
     let tempObject = {};
@@ -53,16 +67,12 @@ class WeatherContainer extends Component {
     }
   };
 
-  handleRadio = (e, { value }) => {
-    if (value === "Celcius") {
-      this.setState({
-        showFahrenheit: false
-      });
-    } else {
-      this.setState({
-        showFahrenheit: true
-      });
-    }
+  showBar = () => {
+    return (
+      <div>
+        <BarChart />
+      </div>
+    );
   };
 
   render() {
@@ -95,8 +105,7 @@ class WeatherContainer extends Component {
           </Form>
           <br />
           {this.showCard()}
-          <br />
-          <li>bar graph</li>
+          {this.showBar()}
         </ul>
       </div>
     );
