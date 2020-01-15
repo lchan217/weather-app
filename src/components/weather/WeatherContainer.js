@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import WeatherPagination from "./WeatherPagination";
 import { Form, Radio } from "semantic-ui-react";
+import "./css/WeatherContainer.css";
 
 class WeatherContainer extends Component {
   constructor() {
@@ -74,13 +75,10 @@ class WeatherContainer extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Weather Container</h1>
+      <div className='weather-container'>
+        <h1 className='center'>Weather Forecast for Munich</h1>
         <ul>
           <Form>
-            <Form.Field>
-              Selected value: <b>{this.state.value}</b>
-            </Form.Field>
             <Form.Field>
               <Radio
                 label='Celcius'

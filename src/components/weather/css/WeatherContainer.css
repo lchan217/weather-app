@@ -1,0 +1,17 @@
+.weather-container {
+  background-color: pink;
+}
+
+.center {
+  text-align: center;
+}
+
+.form.ui.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+div.ui.radio.checkbox label {
+  font-size: 2em;
+}
