@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { XYPlot, VerticalBarSeries } from "react-vis";
+import { XYPlot, VerticalBarSeries, XAxis, YAxis } from "react-vis";
 
 class BarChart extends Component {
   render() {
@@ -38,6 +38,9 @@ class BarChart extends Component {
           height={chartHeight}
           yDomain={chartDomain}
         >
+          <XAxis />
+          <YAxis />
+
           <VerticalBarSeries data={data} />
         </XYPlot>
       </div>
