@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import WeatherPagination from "./WeatherPagination";
-import BarChart from "./BarChart";
 import { Form, Radio } from "semantic-ui-react";
 
 class WeatherContainer extends Component {
@@ -67,14 +66,6 @@ class WeatherContainer extends Component {
     }
   };
 
-  showBar = () => {
-    return (
-      <div>
-        <BarChart />
-      </div>
-    );
-  };
-
   render() {
     return (
       <div>
@@ -105,7 +96,6 @@ class WeatherContainer extends Component {
           </Form>
           <br />
           {this.showCard()}
-          {this.showBar()}
         </ul>
       </div>
     );

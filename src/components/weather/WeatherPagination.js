@@ -36,14 +36,21 @@ class WeatherPagination extends Component {
 
   showArrows = () => {
     if (this.state.currentPage === 1) {
-      return <Icon onClick={this.handleRight} name='arrow circle right'></Icon>;
+      return (
+        <Icon onClick={this.handleRight} name='huge arrow circle right'></Icon>
+      );
     } else if (this.state.currentPage === 3) {
-      return <Icon onClick={this.handleLeft} name='arrow circle left'></Icon>;
+      return (
+        <Icon onClick={this.handleLeft} name='huge arrow circle left'></Icon>
+      );
     } else {
       return (
         <div>
-          <Icon onClick={this.handleLeft} name='arrow circle left'></Icon>
-          <Icon onClick={this.handleRight} name='arrow circle right'></Icon>
+          <Icon onClick={this.handleLeft} name=' huge arrow circle left'></Icon>
+          <Icon
+            onClick={this.handleRight}
+            name='huge arrow circle right'
+          ></Icon>
         </div>
       );
     }
