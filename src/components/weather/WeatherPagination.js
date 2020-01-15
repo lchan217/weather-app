@@ -19,7 +19,7 @@ class WeatherPagination extends Component {
       currentTemps[date] = this.props.averages[date];
     }
 
-    return <WeatherCard temps={currentTemps} />;
+    return <WeatherCard temps={currentTemps} showF={this.props.showF} />;
   };
 
   handleLeft = () => {

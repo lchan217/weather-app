@@ -54,13 +54,19 @@ class WeatherContainer extends Component {
     if (this.state.showFahrenheit) {
       return (
         <div>
-          <WeatherPagination averages={avgF} />
+          <WeatherPagination
+            averages={avgF}
+            showF={this.state.showFahrenheit}
+          />
         </div>
       );
     } else {
       return (
         <div>
-          <WeatherPagination averages={avgC} />
+          <WeatherPagination
+            averages={avgC}
+            showF={this.state.showFahrenheit}
+          />
         </div>
       );
     }
