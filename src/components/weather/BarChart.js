@@ -1,37 +1,38 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { XYPlot, VerticalBarSeries, XAxis, YAxis } from "react-vis";
+import { XYPlot, VerticalBarSeries, XAxis } from "react-vis";
 
 class BarChart extends Component {
   render() {
     const date = this.props.date;
     const allData = this.props.list;
     const data = [];
+    const chartWidth = 500;
+    let chartHeight = 100;
 
     for (let item of allData) {
       if (date === item.dt_txt.slice(0, 10)) {
         if (this.props.showF === true) {
+          let fahrenheit = ((item.main.temp - 273.15) * 9) / 5 + 32;
           data.push({
-            y: ((item.main.temp - 273.15) * 9) / 5 + 32,
-            x: item.dt_txt.slice(11, 19)
+            y: fahrenheit,
+            x: item.dt_txt.slice(11, 16)
           });
         } else {
+          let celcius = item.main.temp - 273.15;
           data.push({
-            y: item.main.temp - 273.15,
-            x: item.dt_txt.slice(11, 19)
+            y: celcius,
+            x: item.dt_txt.slice(11, 16)
           });
         }
       }
     }
 
-    const chartWidth = 500;
-    const chartHeight = 100;
     //indicates lowest and highest point on y-axis
     const chartDomain = [0, chartHeight];
-
     return (
       <div>
-        barchart
+        <h1>Weather for {date}</h1>
         <XYPlot
           xType='ordinal'
           width={chartWidth}
@@ -39,8 +40,6 @@ class BarChart extends Component {
           yDomain={chartDomain}
         >
           <XAxis />
-          <YAxis />
-
           <VerticalBarSeries data={data} />
         </XYPlot>
       </div>
