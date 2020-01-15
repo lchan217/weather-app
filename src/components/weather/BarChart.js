@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { XYPlot, VerticalBarSeries } from "react-vis";
 
 class BarChart extends Component {
   render() {
@@ -23,12 +24,24 @@ class BarChart extends Component {
       }
     }
 
-    const chartWidth = 800;
-    const chartHeight = 500;
+    const chartWidth = 500;
+    const chartHeight = 100;
     //indicates lowest and highest point on y-axis
     const chartDomain = [0, chartHeight];
 
-    return <div>barchart</div>;
+    return (
+      <div>
+        barchart
+        <XYPlot
+          xType='ordinal'
+          width={chartWidth}
+          height={chartHeight}
+          yDomain={chartDomain}
+        >
+          <VerticalBarSeries data={data} />
+        </XYPlot>
+      </div>
+    );
   }
 }
 
