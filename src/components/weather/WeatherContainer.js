@@ -10,6 +10,19 @@ class WeatherContainer extends Component {
       showFahrenheit: true
     };
   }
+
+  handleRadio = (e, { value }) => {
+    if (value === "Celcius") {
+      this.setState({
+        showFahrenheit: false
+      });
+    } else {
+      this.setState({
+        showFahrenheit: true
+      });
+    }
+  };
+
   showCard = () => {
     //calculate average temp of dates available in api
     let tempObject = {};
@@ -41,27 +54,21 @@ class WeatherContainer extends Component {
     if (this.state.showFahrenheit) {
       return (
         <div>
-          <WeatherPagination averages={avgF} />
+          <WeatherPagination
+            averages={avgF}
+            showF={this.state.showFahrenheit}
+          />
         </div>
       );
     } else {
       return (
         <div>
-          <WeatherPagination averages={avgC} />
+          <WeatherPagination
+            averages={avgC}
+            showF={this.state.showFahrenheit}
+          />
         </div>
       );
-    }
-  };
-
-  handleRadio = (e, { value }) => {
-    if (value === "Celcius") {
-      this.setState({
-        showFahrenheit: false
-      });
-    } else {
-      this.setState({
-        showFahrenheit: true
-      });
     }
   };
 
@@ -95,8 +102,6 @@ class WeatherContainer extends Component {
           </Form>
           <br />
           {this.showCard()}
-          <br />
-          <li>bar graph</li>
         </ul>
       </div>
     );

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import WeatherContainer from "./components/weather/WeatherContainer";
 import Loading from "../src/components/Loading";
-
+import { Container } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchWeather } from "../src/actions/weatherActions";
 
@@ -18,7 +18,11 @@ class App extends Component {
     } else {
       data = <WeatherContainer />;
     }
-    return <div className='App'>{data}</div>;
+    return (
+      <div className='App'>
+        <Container>{data}</Container>
+      </div>
+    );
   }
 }
 
