@@ -1,16 +1,21 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
-import Moment from "react-moment";
 
-const WeatherCard = props => {
+const WeatherCard = ({ temps }) => {
   return (
     <div>
-      <Card>
-        <Card.Content>
-          Date: <Moment format='DD MMM YY'>{props.date}</Moment> <br />
-          Temp: {props.temp.toFixed(2)}
-        </Card.Content>
-      </Card>
+      <h1>WeatherCard</h1>
+      <Card.Group>
+        {Object.entries(temps).map(([date, temp]) => {
+          return (
+            <Card>
+              <Card.Content>
+                date: {date} - temp: {temp.toFixed(2)}
+              </Card.Content>
+            </Card>
+          );
+        })}
+      </Card.Group>
     </div>
   );
 };
