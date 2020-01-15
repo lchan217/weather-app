@@ -23,6 +23,18 @@ class WeatherCard extends Component {
     });
   };
 
+  showBarChart = () => {
+    if (this.state.showBar) {
+      return (
+        <div>
+          <button onClick={this.handleClose}>Close</button>
+          <BarChart date={this.state.date} />
+          <br />
+        </div>
+      );
+    }
+  };
+
   render() {
     const { temps } = this.props;
     const { handleClick, showBarChart } = this;
@@ -39,6 +51,7 @@ class WeatherCard extends Component {
             );
           })}
         </Card.Group>
+        {showBarChart()}
       </div>
     );
   }
