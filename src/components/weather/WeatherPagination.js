@@ -5,15 +5,14 @@ import WeatherCard from "./WeatherCard";
 class WeatherPagination extends Component {
   constructor() {
     super();
-    this.state = { currentPage: 2, tempsPerPage: 3 };
+    this.state = { currentPage: 1, tempsPerPage: 3 };
   }
 
   showPerPage = () => {
-    const indexOfLastTemp = this.state.currentPage * this.state.tempsPerPage;
-    const indexOfFirstTemp = indexOfLastTemp - this.state.tempsPerPage;
+    const indexOfLastTemp = this.state.currentPage + this.state.tempsPerPage;
 
     const keys = Object.keys(this.props.averages);
-    const tempsToShow = keys.slice(indexOfFirstTemp, indexOfLastTemp);
+    const tempsToShow = keys.slice(this.state.currentPage, indexOfLastTemp);
     const currentTemps = {};
 
     for (let date of tempsToShow) {
@@ -24,25 +23,21 @@ class WeatherPagination extends Component {
   };
 
   handleLeft = () => {
-    if (this.state.currentPage > 1) {
-      this.setState(prevState => {
-        return { currentPage: prevState.currentPage - 1 };
-      });
-    }
+    this.setState(prevState => {
+      return { currentPage: prevState.currentPage - 1 };
+    });
   };
 
   handleRight = () => {
-    if (this.state.currentPage < 6) {
-      this.setState(prevState => {
-        return { currentPage: prevState.currentPage + 1 };
-      });
-    }
+    this.setState(prevState => {
+      return { currentPage: prevState.currentPage + 1 };
+    });
   };
 
   showArrows = () => {
     if (this.state.currentPage === 1) {
       return <Icon onClick={this.handleRight} name='arrow circle right'></Icon>;
-    } else if (this.state.currentPage === 5) {
+    } else if (this.state.currentPage === 3) {
       return <Icon onClick={this.handleLeft} name='arrow circle left'></Icon>;
     } else {
       return (
