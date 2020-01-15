@@ -17,7 +17,7 @@ class App extends Component {
     } else {
       data = <WeatherContainer />;
     }
-    return <div className='App'> {data}</div>;
+    return <div className='App'>{data}</div>;
   }
 }
 
