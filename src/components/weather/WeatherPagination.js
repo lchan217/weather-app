@@ -64,6 +64,9 @@ class WeatherPagination extends Component {
     return (
       <div>
         {this.showArrows()}
+        <h3 className='center'>
+          Click on a card to see a bar chart of the daily temp
+        </h3>
         {this.showPerPage()}
       </div>
     );
