@@ -5,19 +5,26 @@ import "./css/BarChart.css";
 
 class BarChart extends Component {
   render() {
-    const { date, list } = this.props;
+    const { date, list, showF } = this.props;
     const data = [];
+
+    let lowest = 1000;
+    let highest = -1000;
 
     for (let item of list) {
       if (date === item.dt_txt.slice(0, 10)) {
-        if (this.props.showF === true) {
+        if (showF === true) {
           let fahrenheit = ((item.main.temp - 273.15) * 9) / 5 + 32;
+          if (lowest > fahrenheit) lowest = fahrenheit;
+          if (highest < fahrenheit) highest = fahrenheit;
           data.push({
             y: fahrenheit,
             x: item.dt_txt.slice(11, 16)
           });
         } else {
           let celcius = item.main.temp - 273.15;
+          if (lowest > celcius) lowest = celcius;
+          if (highest < celcius) highest = celcius;
           data.push({
             y: celcius,
             x: item.dt_txt.slice(11, 16)
@@ -27,11 +34,16 @@ class BarChart extends Component {
     }
 
     //indicates lowest and highest point on y-axis
-    const chartDomain = [0, 50];
+    const chartDomain = [lowest, highest];
+    debugger;
+    const degree = this.props.showF ? "°F" : "°C";
+
     return (
       <div>
         <br />
-        <h1 className='center'>Weather for {date}</h1>
+        <h1 className='center'>
+          Weather for {date} in {degree}
+        </h1>
 
         <XYPlot
           className='bar-graph'
