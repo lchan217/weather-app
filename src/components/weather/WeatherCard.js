@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card } from "semantic-ui-react";
 import BarChart from "./BarChart";
+import Moment from "react-moment";
 
 class WeatherCard extends Component {
   constructor() {
@@ -45,7 +46,9 @@ class WeatherCard extends Component {
             return (
               <Card onClick={() => handleClick(date)}>
                 <Card.Content>
-                  date: {date} - temp: {temp.toFixed(2)}
+                  Temp: {temp.toFixed(2)}
+                  <br />
+                  Date: <Moment format='DD MMM YY'>{date}</Moment>
                 </Card.Content>
               </Card>
             );
