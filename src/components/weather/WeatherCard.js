@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Card } from "semantic-ui-react";
 import BarChart from "./BarChart";
 import Moment from "react-moment";
+import "./css/WeatherCard.css";
 
 class WeatherCard extends Component {
   constructor() {
@@ -44,9 +45,9 @@ class WeatherCard extends Component {
         <Card.Group>
           {Object.entries(temps).map(([date, temp]) => {
             return (
-              <Card onClick={() => handleClick(date)}>
+              <Card className='test' onClick={() => handleClick(date)}>
                 <Card.Content>
-                  Temp: {temp.toFixed(2)}
+                  Temp: {temp}
                   <br />
                   Date: <Moment format='DD MMM YY'>{date}</Moment>
                 </Card.Content>
