@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Icon } from "semantic-ui-react";
 import WeatherCard from "./WeatherCard";
+import "./css/WeatherPagination.css";
 
 class WeatherPagination extends Component {
   constructor() {
@@ -37,20 +38,23 @@ class WeatherPagination extends Component {
   showArrows = () => {
     if (this.state.currentPage === 1) {
       return (
-        <Icon onClick={this.handleRight} name='huge arrow circle right'></Icon>
+        <div className='arrows'>
+          <Icon></Icon>
+          <Icon onClick={this.handleRight} name='huge arrow right'></Icon>
+        </div>
       );
     } else if (this.state.currentPage === 3) {
       return (
-        <Icon onClick={this.handleLeft} name='huge arrow circle left'></Icon>
+        <div className='arrows'>
+          <Icon onClick={this.handleLeft} name='huge arrow  left'></Icon>
+          <Icon></Icon>
+        </div>
       );
     } else {
       return (
-        <div>
-          <Icon onClick={this.handleLeft} name=' huge arrow circle left'></Icon>
-          <Icon
-            onClick={this.handleRight}
-            name='huge arrow circle right'
-          ></Icon>
+        <div className='arrows'>
+          <Icon onClick={this.handleLeft} name=' huge arrow left'></Icon>
+          <Icon onClick={this.handleRight} name='huge arrow  right'></Icon>
         </div>
       );
     }
