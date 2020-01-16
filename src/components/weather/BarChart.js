@@ -46,9 +46,17 @@ class BarChart extends Component {
     return (
       <div>
         <br />
-        <h1 className='center'>
+        <h2 className='center'>
           Weather for {date} in {degree}
-        </h1>
+        </h2>
+        <h4 className='center'>
+          <i>Hover over bars to see details</i>
+        </h4>
+        <p className='hover-data center'>
+          {this.state.hour && this.state.temp
+            ? `Temperature at ${this.state.hour}: ${this.state.temp.toFixed(2)}`
+            : null}
+        </p>
 
         <XYPlot
           className='bar-graph'
@@ -69,13 +77,6 @@ class BarChart extends Component {
             }}
             onSeriesMouseOut={v => this.setState({ temp: null, hour: null })}
           />
-          <p style={{ textAlign: "left" }}>
-            {this.state.hour && this.state.temp
-              ? `Temperature at ${this.state.hour}: ${this.state.temp.toFixed(
-                  2
-                )}`
-              : null}
-          </p>
         </XYPlot>
       </div>
     );

@@ -40,21 +40,21 @@ class WeatherPagination extends Component {
       return (
         <div className='arrows'>
           <Icon></Icon>
-          <Icon onClick={this.handleRight} name='huge arrow right'></Icon>
+          <Icon onClick={this.handleRight} name='big arrow right'></Icon>
         </div>
       );
     } else if (this.state.currentPage === 3) {
       return (
         <div className='arrows'>
-          <Icon onClick={this.handleLeft} name='huge arrow  left'></Icon>
+          <Icon onClick={this.handleLeft} name='big arrow  left'></Icon>
           <Icon></Icon>
         </div>
       );
     } else {
       return (
         <div className='arrows'>
-          <Icon onClick={this.handleLeft} name=' huge arrow left'></Icon>
-          <Icon onClick={this.handleRight} name='huge arrow  right'></Icon>
+          <Icon onClick={this.handleLeft} name=' big arrow left'></Icon>
+          <Icon onClick={this.handleRight} name='big arrow  right'></Icon>
         </div>
       );
     }
@@ -64,9 +64,10 @@ class WeatherPagination extends Component {
     return (
       <div>
         {this.showArrows()}
-        <h3 className='center'>
-          Click on a card to see a bar chart of the daily temp
-        </h3>
+        <h4 className='center'>
+          <i>Click on a card to see a bar chart of the daily temp</i>
+        </h4>
+        <br />
         {this.showPerPage()}
       </div>
     );

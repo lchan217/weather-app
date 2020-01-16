@@ -1,6 +1,9 @@
 .bar-graph {
-  background: pink;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.hover-data {
+  font-style: italic;
 }

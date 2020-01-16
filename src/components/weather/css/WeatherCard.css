@@ -1,6 +1,7 @@
-a.ui.card.test {
-  height: 15em;
-  width: 13em;
+a.ui.card {
+  height: 7em;
+  width: 5em;
+  font-size: 1.5em;
   color: black;
 }
 
@@ -15,4 +16,5 @@ button.button {
   margin-left: auto;
   margin-right: auto;
   width: 10%;
+  background-color: rgb(220, 220, 220);
 }

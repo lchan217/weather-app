@@ -47,9 +47,10 @@ class WeatherCard extends Component {
         <Card.Group>
           {Object.entries(temps).map(([date, temp]) => {
             return (
-              <Card className='test' onClick={() => handleClick(date)}>
-                <Card.Content>
+              <Card onClick={() => handleClick(date)}>
+                <Card.Content style={{ fontSize: 20 }}>
                   Average Temp: {temp}
+                  <br />
                   <br />
                   Date: <Moment format='DD MMM YY'>{date}</Moment>
                 </Card.Content>
