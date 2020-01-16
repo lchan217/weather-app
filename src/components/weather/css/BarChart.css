@@ -1,4 +1,6 @@
-.bar-chart {
-  display: flex;
-  justify-content: center;
+.bar-graph {
+  background: pink;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

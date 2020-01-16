@@ -11,7 +11,8 @@ div.ui.cards {
 }
 
 button.button {
-  margin-left: 50%;
-  width: 6em;
-  height: 2em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
 }
