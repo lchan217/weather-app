@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { XYPlot, VerticalBarSeries, XAxis } from "react-vis";
+import "./css/BarChart.css";
 
 class BarChart extends Component {
   render() {
@@ -32,16 +33,19 @@ class BarChart extends Component {
     const chartDomain = [0, chartHeight];
     return (
       <div>
-        <h1>Weather for {date}</h1>
-        <XYPlot
-          xType='ordinal'
-          width={chartWidth}
-          height={chartHeight}
-          yDomain={chartDomain}
-        >
-          <XAxis />
-          <VerticalBarSeries data={data} />
-        </XYPlot>
+        <br />
+        <h1 className='center'>Weather for {date}</h1>
+        <div className='bar-chart'>
+          <XYPlot
+            xType='ordinal'
+            width={chartWidth}
+            height={chartHeight}
+            yDomain={chartDomain}
+          >
+            <XAxis />
+            <VerticalBarSeries data={data} />
+          </XYPlot>
+        </div>
       </div>
     );
   }

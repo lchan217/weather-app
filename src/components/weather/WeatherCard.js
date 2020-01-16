@@ -29,9 +29,11 @@ class WeatherCard extends Component {
     if (this.state.showBar) {
       return (
         <div>
-          <button onClick={this.handleClose}>Close</button>
           <BarChart date={this.state.date} showF={this.props.showF} />
           <br />
+          <button className='button' onClick={this.handleClose}>
+            Close
+          </button>
         </div>
       );
     }

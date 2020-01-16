@@ -9,3 +9,9 @@ div.ui.cards {
   flex-direction: row;
   justify-content: space-around;
 }
+
+button.button {
+  margin-left: 50%;
+  width: 6em;
+  height: 2em;
+}
