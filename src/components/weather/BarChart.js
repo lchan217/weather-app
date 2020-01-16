@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { XYPlot, VerticalBarSeries, XAxis } from "react-vis";
+import { XYPlot, VerticalBarSeries, XAxis, YAxis } from "react-vis";
 import "./css/BarChart.css";
 
 class BarChart extends Component {
+  constructor() {
+    super();
+    this.state = {
+      temp: null,
+      hour: null
+    };
+  }
   render() {
     const { date, list, showF } = this.props;
     const data = [];
@@ -35,9 +42,7 @@ class BarChart extends Component {
 
     //indicates lowest and highest point on y-axis
     const chartDomain = [lowest, highest];
-    debugger;
     const degree = this.props.showF ? "°F" : "°C";
-
     return (
       <div>
         <br />
@@ -53,7 +58,24 @@ class BarChart extends Component {
           yDomain={chartDomain}
         >
           <XAxis />
-          <VerticalBarSeries data={data} />
+          <YAxis />
+          <VerticalBarSeries
+            data={data}
+            onValueMouseOver={event => {
+              this.setState({
+                temp: event.y,
+                hour: event.x
+              });
+            }}
+            onSeriesMouseOut={v => this.setState({ temp: null, hour: null })}
+          />
+          <p style={{ textAlign: "left" }}>
+            {this.state.hour && this.state.temp
+              ? `Temperature at ${this.state.hour}: ${this.state.temp.toFixed(
+                  2
+                )}`
+              : null}
+          </p>
         </XYPlot>
       </div>
     );

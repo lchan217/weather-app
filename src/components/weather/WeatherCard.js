@@ -49,7 +49,7 @@ class WeatherCard extends Component {
             return (
               <Card className='test' onClick={() => handleClick(date)}>
                 <Card.Content>
-                  Temp: {temp}
+                  Average Temp: {temp}
                   <br />
                   Date: <Moment format='DD MMM YY'>{date}</Moment>
                 </Card.Content>
