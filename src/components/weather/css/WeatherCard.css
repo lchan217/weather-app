@@ -1,0 +1,11 @@
+a.ui.card.test {
+  height: 15em;
+  width: 13em;
+  color: black;
+}
+
+div.ui.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
