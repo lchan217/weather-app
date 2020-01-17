@@ -74,6 +74,8 @@ class WeatherContainer extends Component {
   };
 
   render() {
+    const { showFahrenheit } = this.state;
+    const { handleRadio } = this;
     return (
       <div className='weather-container'>
         <h2 className='center'>Weather Forecast for Munich</h2>
@@ -84,8 +86,8 @@ class WeatherContainer extends Component {
                 label='Celcius'
                 name='radioGroup'
                 value='Celcius'
-                checked={this.state.showFahrenheit === false}
-                onChange={this.handleRadio}
+                checked={showFahrenheit === false}
+                onChange={handleRadio}
               />
             </Form.Field>
             <Form.Field>
@@ -93,8 +95,8 @@ class WeatherContainer extends Component {
                 label='Fahrenheit'
                 name='radioGroup'
                 value='Fahrenheit'
-                checked={this.state.showFahrenheit === true}
-                onChange={this.handleRadio}
+                checked={showFahrenheit === true}
+                onChange={handleRadio}
               />
             </Form.Field>
           </Form>

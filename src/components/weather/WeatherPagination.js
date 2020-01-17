@@ -10,17 +10,21 @@ class WeatherPagination extends Component {
   }
 
   showPerPage = () => {
-    const indexOfLastTemp = this.state.currentPage + this.state.tempsPerPage;
+    //destructure props
+    const { currentPage, tempsPerPage } = this.state;
+    const { averages, showF } = this.props;
 
-    const keys = Object.keys(this.props.averages);
-    const tempsToShow = keys.slice(this.state.currentPage, indexOfLastTemp);
+    const indexOfLastTemp = currentPage + tempsPerPage;
+
+    const keys = Object.keys(averages);
+    const tempsToShow = keys.slice(currentPage, indexOfLastTemp);
     const currentTemps = {};
 
     for (let date of tempsToShow) {
-      currentTemps[date] = this.props.averages[date];
+      currentTemps[date] = averages[date];
     }
 
-    return <WeatherCard temps={currentTemps} showF={this.props.showF} />;
+    return <WeatherCard temps={currentTemps} showF={showF} />;
   };
 
   handleLeft = () => {
@@ -36,25 +40,28 @@ class WeatherPagination extends Component {
   };
 
   showArrows = () => {
-    if (this.state.currentPage === 1) {
+    const { currentPage } = this.state;
+    const { handleRight, handleLeft } = this;
+
+    if (currentPage === 1) {
       return (
         <div className='arrows'>
           <Icon></Icon>
-          <Icon onClick={this.handleRight} name='big arrow right'></Icon>
+          <Icon onClick={handleRight} name='big arrow right'></Icon>
         </div>
       );
-    } else if (this.state.currentPage === 3) {
+    } else if (currentPage === 3) {
       return (
         <div className='arrows'>
-          <Icon onClick={this.handleLeft} name='big arrow  left'></Icon>
+          <Icon onClick={handleLeft} name='big arrow  left'></Icon>
           <Icon></Icon>
         </div>
       );
     } else {
       return (
         <div className='arrows'>
-          <Icon onClick={this.handleLeft} name=' big arrow left'></Icon>
-          <Icon onClick={this.handleRight} name='big arrow  right'></Icon>
+          <Icon onClick={handleLeft} name=' big arrow left'></Icon>
+          <Icon onClick={handleRight} name='big arrow  right'></Icon>
         </div>
       );
     }
