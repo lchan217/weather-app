@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { XYPlot, VerticalBarSeries, XAxis, YAxis } from "react-vis";
+import {
+  VerticalBarSeries,
+  XAxis,
+  YAxis,
+  FlexibleWidthXYPlot
+} from "react-vis";
 import "./css/BarChart.css";
 
 class BarChart extends Component {
@@ -60,26 +65,27 @@ class BarChart extends Component {
             : null}
         </p>
 
-        <XYPlot
-          className='bar-graph'
-          xType='ordinal'
-          width={500}
-          height={200}
-          yDomain={chartDomain}
-        >
-          <XAxis />
-          <YAxis />
-          <VerticalBarSeries
-            data={data}
-            onValueMouseOver={event => {
-              this.setState({
-                temp: event.y,
-                hour: event.x
-              });
-            }}
-            onSeriesMouseOut={v => this.setState({ temp: null, hour: null })}
-          />
-        </XYPlot>
+        <div className='bar-graph-wrapper'>
+          <FlexibleWidthXYPlot
+            className='bar-graph'
+            xType='ordinal'
+            height={200}
+            yDomain={chartDomain}
+          >
+            <XAxis />
+            <YAxis />
+            <VerticalBarSeries
+              data={data}
+              onValueMouseOver={event => {
+                this.setState({
+                  temp: event.y,
+                  hour: event.x
+                });
+              }}
+              onSeriesMouseOut={v => this.setState({ temp: null, hour: null })}
+            />
+          </FlexibleWidthXYPlot>
+        </div>
       </div>
     );
   }
