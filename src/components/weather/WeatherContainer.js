@@ -47,8 +47,8 @@ class WeatherContainer extends Component {
     let avgC = {};
     let avgF = {};
     for (let date in avgK) {
-      avgC[date] = (avgK[date] - 273.15).toFixed(2) + " C";
-      avgF[date] = (((avgK[date] - 273.15) * 9) / 5 + 32).toFixed(2) + " F";
+      avgC[date] = (avgK[date] - 273.15).toFixed(2);
+      avgF[date] = (((avgK[date] - 273.15) * 9) / 5 + 32).toFixed(2);
     }
 
     //logic to pass F or C data to card

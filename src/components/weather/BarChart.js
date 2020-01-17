@@ -41,7 +41,7 @@ class BarChart extends Component {
     }
 
     //indicates lowest and highest point on y-axis
-    const chartDomain = [lowest, highest];
+    const chartDomain = [lowest - 2, highest + 2];
     const degree = this.props.showF ? "°F" : "°C";
     return (
       <div>
@@ -54,7 +54,9 @@ class BarChart extends Component {
         </h4>
         <p className='hover-data center'>
           {this.state.hour && this.state.temp
-            ? `Temperature at ${this.state.hour}: ${this.state.temp.toFixed(2)}`
+            ? `Temperature at ${this.state.hour}: ${this.state.temp.toFixed(
+                2
+              )} ${degree}`
             : null}
         </p>
 

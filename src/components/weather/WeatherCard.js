@@ -42,6 +42,8 @@ class WeatherCard extends Component {
   render() {
     const { temps } = this.props;
     const { handleClick, showBarChart } = this;
+    const degree = this.props.showF ? "°F" : "°C";
+
     return (
       <div>
         <Card.Group>
@@ -49,7 +51,7 @@ class WeatherCard extends Component {
             return (
               <Card onClick={() => handleClick(date)}>
                 <Card.Content style={{ fontSize: 20 }}>
-                  Average Temp: {temp}
+                  Average Temp: {temp} {degree}
                   <br />
                   <br />
                   Date: <Moment format='DD MMM YY'>{date}</Moment>
