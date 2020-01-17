@@ -31,9 +31,7 @@ class WeatherCard extends Component {
         <div>
           <BarChart date={this.state.date} showF={this.props.showF} />
           <br />
-          <button className='button' onClick={this.handleClose}>
-            Close
-          </button>
+          <button onClick={this.handleClose}>Close</button>
         </div>
       );
     }

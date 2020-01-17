@@ -8,3 +8,11 @@
   font-style: italic;
   color: red;
 }
+
+@media screen and (min-width: 600px) {
+  /* desktop */
+}
+
+@media screen and (max-width: 599px) {
+  /* mobile */
+}
