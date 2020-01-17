@@ -5,16 +5,32 @@ a.ui.card {
   color: black;
 }
 
-div.ui.cards {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
 button.button {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 10%;
   background-color: rgb(220, 220, 220);
+}
+
+div.ui.cards {
+  display: flex;
+}
+
+@media screen and (min-width: 1000px) {
+  /* desktop */
+  div.ui.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  /* mobile */
+  div.ui.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
