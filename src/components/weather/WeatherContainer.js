@@ -76,7 +76,7 @@ class WeatherContainer extends Component {
   render() {
     return (
       <div className='weather-container'>
-        <h1 className='center'>Weather Forecast for Munich</h1>
+        <h2 className='center'>Weather Forecast for Munich</h2>
         <ul>
           <Form>
             <Form.Field>

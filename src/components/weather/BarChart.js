@@ -51,9 +51,9 @@ class BarChart extends Component {
     return (
       <div>
         <br />
-        <h2 className='center'>
+        <h3 className='center'>
           Weather for {date} in {degree}
-        </h2>
+        </h3>
         <h4 className='center'>
           <i>Click on bars to see details</i>
         </h4>
@@ -67,12 +67,13 @@ class BarChart extends Component {
 
         <div className='bar-graph-wrapper'>
           <FlexibleWidthXYPlot
+            margin={{ bottom: 55 }}
             className='bar-graph'
             xType='ordinal'
             height={200}
             yDomain={chartDomain}
           >
-            <XAxis />
+            <XAxis tickFormat={v => `${v}`} tickLabelAngle={-90} />
             <YAxis />
             <VerticalBarSeries
               data={data}
