@@ -14,11 +14,3 @@
   margin-right: auto;
   width: 50%;
 }
-
-@media screen and (min-width: 500px) {
-  /* desktop */
-}
-
-@media screen and (max-width: 499px) {
-  /* mobile */
-}

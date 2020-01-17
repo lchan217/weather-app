@@ -82,7 +82,6 @@ class BarChart extends Component {
                   hour: datapoint.x
                 });
               }}
-              onSeriesMouseOut={v => this.setState({ temp: null, hour: null })}
             />
           </FlexibleWidthXYPlot>
         </div>
