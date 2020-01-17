@@ -55,7 +55,7 @@ class BarChart extends Component {
           Weather for {date} in {degree}
         </h2>
         <h4 className='center'>
-          <i>Hover over bars to see details</i>
+          <i>Click on bars to see details</i>
         </h4>
         <p className='hover-data center'>
           {this.state.hour && this.state.temp
@@ -76,10 +76,10 @@ class BarChart extends Component {
             <YAxis />
             <VerticalBarSeries
               data={data}
-              onValueMouseOver={event => {
+              onValueClick={(datapoint, event) => {
                 this.setState({
-                  temp: event.y,
-                  hour: event.x
+                  temp: datapoint.y,
+                  hour: datapoint.x
                 });
               }}
               onSeriesMouseOut={v => this.setState({ temp: null, hour: null })}
