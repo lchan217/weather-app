@@ -26,21 +26,21 @@ class WeatherContainer extends Component {
 
   showCard = () => {
     //calculate average temp of dates available in api
-    let tempObject = {};
+    let totalTempObject = {};
     let countObject = {};
     for (let item of this.props.list) {
       let date = item.dt_txt.slice(0, 10);
-      tempObject[date]
-        ? (tempObject[date] += item.main.temp)
-        : (tempObject[date] = item.main.temp);
+      totalTempObject[date]
+        ? (totalTempObject[date] += item.main.temp)
+        : (totalTempObject[date] = item.main.temp);
 
       countObject[date] ? (countObject[date] += 1) : (countObject[date] = 1);
     }
 
     //create object with date as key and average as value in K
     let avgK = {};
-    for (let date in tempObject) {
-      avgK[date] = tempObject[date] / countObject[date];
+    for (let date in totalTempObject) {
+      avgK[date] = totalTempObject[date] / countObject[date];
     }
 
     //convert to C and F
