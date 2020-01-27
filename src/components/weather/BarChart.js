@@ -12,7 +12,6 @@ class BarChart extends Component {
   constructor() {
     super();
     this.state = {
-      temp: null,
       hour: null
     };
   }
@@ -48,9 +47,20 @@ class BarChart extends Component {
     //indicates lowest and highest point on y-axis
     // add or subtract 2 to widen the range
     const chartDomain = [lowest - 2, highest + 2];
-    const degree = this.props.showF ? "°F" : "°C";
+    const degree = showF ? "°F" : "°C";
 
-    const { hour, temp } = this.state;
+    const { hour } = this.state;
+
+    let temp;
+    if (showF && this.state.hour) {
+      data.find(data => {
+        return data.x === this.state.hour ? (temp = data.y.toFixed(2)) : null;
+      });
+    } else {
+      data.find(data => {
+        return data.x === this.state.hour ? (temp = data.y.toFixed(2)) : null;
+      });
+    }
 
     return (
       <div>
@@ -62,9 +72,7 @@ class BarChart extends Component {
           <i>Click on bars to see details</i>
         </h4>
         <p className='hover-data center'>
-          {hour && temp
-            ? `Temperature at ${hour}: ${temp.toFixed(2)} ${degree}`
-            : null}
+          {hour ? `Temperature at ${hour}: ${temp} ${degree}` : null}
         </p>
 
         <div className='bar-graph-wrapper'>
@@ -81,7 +89,6 @@ class BarChart extends Component {
               data={data}
               onValueClick={(datapoint, event) => {
                 this.setState({
-                  temp: datapoint.y,
                   hour: datapoint.x
                 });
               }}
