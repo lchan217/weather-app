@@ -47,21 +47,33 @@ class WeatherPagination extends Component {
       return (
         <div className='arrows'>
           <Icon></Icon>
-          <Icon onClick={handleRight} name='big arrow right'></Icon>
+          <Icon
+            onClick={handleRight}
+            name='huge long arrow alternate right'
+          ></Icon>
         </div>
       );
     } else if (currentPage === 3) {
       return (
         <div className='arrows'>
-          <Icon onClick={handleLeft} name='big arrow  left'></Icon>
+          <Icon
+            onClick={handleLeft}
+            name='huge long arrow alternate left'
+          ></Icon>
           <Icon></Icon>
         </div>
       );
     } else {
       return (
         <div className='arrows'>
-          <Icon onClick={handleLeft} name=' big arrow left'></Icon>
-          <Icon onClick={handleRight} name='big arrow  right'></Icon>
+          <Icon
+            onClick={handleLeft}
+            name='huge long arrow alternate left'
+          ></Icon>
+          <Icon
+            onClick={handleRight}
+            name='huge long arrow alternate right'
+          ></Icon>
         </div>
       );
     }

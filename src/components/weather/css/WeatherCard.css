@@ -5,12 +5,17 @@ a.ui.card {
   color: black;
 }
 
+a.ui.card:hover {
+  color: rgb(65, 145, 153);
+  transform: scale(1.2) !important;
+}
+
 button {
   display: block;
   margin-left: auto;
   margin-right: auto;
-
-  background-color: rgb(220, 220, 220);
+  border-radius: 10%;
+  border-color: rgb(65, 145, 153);
 }
 
 div.ui.cards {
